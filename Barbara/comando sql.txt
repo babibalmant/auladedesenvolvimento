@@ -1,0 +1,47 @@
+CREATE TABLE propietario (
+  RG INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(45) NOT NULL,
+  telefone INT NOT NULL,
+  email VARCHAR(45) NOT NULL);
+
+CREATE TABLE apartamento(
+  idApartamento INT PRIMARY NOT NULL AUTO_INCREMENT,
+  numero INT NOT NULL,
+  tipo VARCHAR(12) NOT NULL,
+  propietario_RG INT NOT NULL,
+  condominio_codigo INT NOT NULL,
+  apartamento_propietario int,
+  FOREIGN KEY(apartamento_proprietario) REFERENCES propietario(RG) );
+
+CREATE TABLE sindico(
+  matricula INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(45) NOT NULL,
+  endereco VARCHAR(45) NOT NULL,
+  telefone INT NOT NULL);
+  
+CREATE TABLE condominio(
+  codigo INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(45) NOT NULL,
+  sindico_matricula INT NOT NULL,
+  condominio_sindico_id int,
+  FOREIGN KEY (condominio_sindico_id)REFERENCES sindico(matricula));
+
+CREATE TABLE endereco(
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  pais VARCHAR(45) NOT NULL,
+  estado VARCHAR(45) NOT NULL,
+  numero INT NOT NULL,
+  rua VARCHAR(100) NOT NULL,
+  sindico_matricula INT NOT NULL,
+  FOREIGN KEY (sindico_matricula) REFERENCES sindico(matricula));
+
+CREATE TABLE garagem (
+  numero INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  tipo VARCHAR(10) NOT NULL,
+  condominio_codigo INT NOT NULL,
+  FOREIGN KEY (condominio_codigo) REFERENCES condominio(codigo));  
+
+
+DROP TABLE propietario - comando para apagar tabela 
+UPDATE apartamento SET numero = 125 WHERE idApartamento = 1
+SELECT * FROM apartamento 
