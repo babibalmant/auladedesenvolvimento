@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="processa.php">
+    <form action="processa.php" method="post">
         <label> nome</label>
         <input type="text" id="nome" name="nome"><br><br>
         <div id="saidanome"></div>
