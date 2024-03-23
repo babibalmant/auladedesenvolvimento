@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Cadastro realizado com sucesso!</h2>
+        <h2>Cadastro Confirmado com Sucesso!</h2>
 
         <?php
         echo "<p><strong>Nome:</strong> $Nome</p>";
